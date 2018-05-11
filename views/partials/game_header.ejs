@@ -11,7 +11,7 @@
         }, false);
 
         function isValidName (name){
-            if (name.length > 15 || name.length === 0){
+            if (name.length > 10 || name.length === 0){
                 return false;
             }
             return true;
@@ -21,7 +21,7 @@
 
             var name = "";
             do {
-                name = prompt("Enter your name (15 CHARACTERS MAX!):");
+                name = prompt("Enter your name (10 CHARACTERS MAX!):");
             } while (!isValidName(name));
 
             if (!name){

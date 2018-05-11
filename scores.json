@@ -1,7 +1,19 @@
 {
     "games": {
-        "snake": [],
-        "tetris": [],
-        "asteroids": []
+        "snake": [{
+            "name": "wwwwwwwwww",
+            "score": "6000000",
+            "date": "May 11, 2018"
+        }],
+        "tetris": [{
+            "name": "wwwwwwwwww",
+            "score": "6000000",
+            "date": "May 11, 2018"
+        }],
+        "asteroids": [{
+            "name": "wwwwwwwwww",
+            "score": "6000000",
+            "date": "May 11, 2018"
+        }]
     }
 }

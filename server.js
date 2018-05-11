@@ -1,16 +1,12 @@
 /*
 TO-DO:
 
--ready all games for website (high score saving capability and choice, div linking and sizing, font, etc) and create paths here
+-clean up all of the CSS and HTMl
 
--fill out the footer
-
--add links on game_body.ejs underneath the top 10 scores and on the home page to
-a path for an EJS page to see ALL the scores
+-ready all games for website (high score saving capability and choice, div linking and sizing, font, etc)
+and entirely fill out the get parameters here appropriately
 
 -add gifs (or at least images) in game-selection paragraphs on home.ejs
-
--create github repository
 
 -improve console.logs for when the server has extended uptime
 
@@ -33,10 +29,17 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(express.static(path.join(__dirname, 'resources')));
-app.use(express.static(path.join(__dirname, 'highscores')));
 
 app.get("/", function (request, response) {
 	response.render("home");
+});
+
+app.get("/high_scores", function (request, response) {
+	response.render("high_scores", {
+		snakeScores: getHighScores("snake", 100),
+		tetrisScores: getHighScores("tetris", 100),
+		asteroidsScores: getHighScores("asteroids", 100)
+	})
 });
 
 function compareScoreObjects(scoreObj1, scoreObj2) {
@@ -65,7 +68,27 @@ app.get("/snake", function (request, response) {
 		gameScript: "games/snake.js",
 		top10Scores: getHighScores("snake", 10),
 		programmer: "Josh Katofsky",
-		repoUrl: ""
+		repositoryUrl: "https://github.com/jkatofsky/AHS-Arcade/blob/master/resources/games/snake.js"
+	});
+});
+
+app.get("/tetris", function (request, response) {
+	response.render("game", {
+		game: "Tetris",
+		gameScript: "games/tetris.js",
+		top10Scores: getHighScores("tetris", 10),
+		programmer: "Kieran O'day",
+		repositoryUrl: ""
+	});
+});
+
+app.get("/asteroids", function (request, response) {
+	response.render("game", {
+		game: "Asteroids",
+		gameScript: "games/asteroids.js",
+		top10Scores: getHighScores("asteroids", 10),
+		programmer: "Kieran O'day",
+		repositoryUrl: ""
 	});
 });
 

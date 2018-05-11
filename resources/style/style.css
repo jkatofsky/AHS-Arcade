@@ -18,32 +18,37 @@ h2 {
 
 .body-content {
     margin: auto;
-    width: 90%;
+    width: 95%;
     text-align: center;
     font-family: "Arcade Classic";
-}
-
-.body-content #game {
-    outline: 3px solid white;
-    float: left;
-}
-
-.body-content #high-scores {
-    float: left;
-    margin-left: 20px;
-    text-align: left;
-    line-height: 40px;
-}
-
-.body-content table {
-    font-size: 20px;
 }
 
 .body-content #game-section {
     display: inline-block;
 }
 
+.body-content #game-section #game {
+    outline: 3px solid white;
+    float: left;
+}
+
+.body-content #game-section #high-scores {
+    float: left;
+    margin-left: 20px;
+    text-align: left;
+    line-height: 40px;
+}
+
+.body-content #game-section table {
+    font-size: 20px;
+    border-spacing: 10px;
+}
+
 .body-content p {
+    display: inline-block;
+}
+
+.body-content h2 {
     display: inline-block;
 }
 
@@ -51,13 +56,35 @@ h2 {
     font-size: 25px;
 }
 
-.body-content a {
+.body-content #all-high-scores {
+    display: inline-block;
+}
+
+.body-content #all-high-scores #all-snake-scores {
+    float: left;
+}
+
+.body-content #all-high-scores #all-tetris-scores {
+    float: left;
+}
+
+.body-content #all-high-scores #all-asteroids-scores {
+    float: left;
+}
+
+.body-content #all-high-scores table {
+    font-size: 10px;
+    border-spacing: 5px;
+    padding: 5px;
+}
+
+a {
     color: lightgrey;
 }
 
 .footer-content {
     margin: auto;
-    width: 50%;
+    width: 75%;
     text-align: center;
     font-family: "Arcade Classic";
 }
