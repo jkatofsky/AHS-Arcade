@@ -1,0 +1,98 @@
+/*
+TO-DO:
+
+-ready all games for website (high score saving capability and choice, div linking and sizing, font, etc) and create paths here
+
+-fill out the footer
+
+-add links on game_body.ejs underneath the top 10 scores and on the home page to
+a path for an EJS page to see ALL the scores
+
+-add gifs (or at least images) in game-selection paragraphs on home.ejs
+
+-create github repository
+
+-improve console.logs for when the server has extended uptime
+
+-get server up-and-running on raspberry pi
+*/
+
+const express = require('express');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const path = require('path');
+
+var app = express();
+
+app.set('view engine', "ejs");
+app.set('views', path.join(__dirname, 'views'));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+	extended: false
+}));
+
+app.use(express.static(path.join(__dirname, 'resources')));
+app.use(express.static(path.join(__dirname, 'highscores')));
+
+app.get("/", function (request, response) {
+	response.render("home");
+});
+
+function compareScoreObjects(scoreObj1, scoreObj2) {
+	var score1 = parseInt(scoreObj1.score);
+	var score2 = parseInt(scoreObj2.score)
+	if (score1 < score2) {
+		return 1;
+	}
+	if (score1 > score2) {
+		return -1;
+	}
+	return 0;
+}
+
+function getHighScores(game, amount) {
+	var scoresText = fs.readFileSync('scores.json', 'utf8');
+	var scoresObj = JSON.parse(scoresText);
+	var gameScores = scoresObj.games[game];
+	var sortedGameScores = gameScores.sort(compareScoreObjects);
+	return (sortedGameScores.slice(0, amount));
+}
+
+app.get("/snake", function (request, response) {
+	response.render("game", {
+		game: "Snake",
+		gameScript: "games/snake.js",
+		top10Scores: getHighScores("snake", 10),
+		programmer: "Josh Katofsky",
+		repoUrl: ""
+	});
+});
+
+function saveScore(scoreData) {
+	fs.readFile('scores.json', 'utf8', function (error, data) {
+		if (error) {
+			throw error;
+		}
+		var scoresObj = JSON.parse(data);
+		scoresObj.games[scoreData.game].push({
+			name: scoreData.name,
+			score: scoreData.score,
+			date: scoreData.date
+		});
+		updatedJSON = JSON.stringify(scoresObj);
+		fs.writeFile('scores.json', updatedJSON, 'utf8', function () {
+			console.log("Saved score!");
+		});
+	});
+}
+
+app.post('/submit_score', function (request, response) {
+	var scoreData = request.body;
+	saveScore(scoreData);
+	return response.redirect('/' + scoreData.game);
+});
+
+app.listen(8080, function () {
+	console.log("Server running on port 8080");
+});

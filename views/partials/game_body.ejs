@@ -1,0 +1,26 @@
+<body>
+    <div class = "body-content">
+        <h1> <%= game %> </h1>
+        <h2> Programmed by <%= programmer %> </h2>
+        <p><a href = "/"> back to home </a></p>
+        <p><a href = <%= repoUrl %>> view the code </a></p>
+    </div>
+    <hr>
+    <div class = "body-content">
+        <div id = "game-section">
+            <div id = "game"></div>
+            <div id = "high-scores">
+                <h2><u>HIGH SCORES:</u><h2>
+                <table style= "border-spacing: 10px;">
+                <% for (var i = 0; i < top10Scores.length; i ++){ %>
+                    <tr>
+                        <th><%= i+1 %>.</th>
+                        <th><%= top10Scores[i].name %></th>
+                        <th><%= top10Scores[i].score %></th>
+                    </tr>
+                <% } %> 
+                </table>
+            </div>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,68 @@
+@font-face {
+    font-family: "Arcade Classic";
+    src: url("arcade_font.ttf");
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+.body-content {
+    margin: auto;
+    width: 90%;
+    text-align: center;
+    font-family: "Arcade Classic";
+}
+
+.body-content #game {
+    outline: 3px solid white;
+    float: left;
+}
+
+.body-content #high-scores {
+    float: left;
+    margin-left: 20px;
+    text-align: left;
+    line-height: 40px;
+}
+
+.body-content table {
+    font-size: 20px;
+}
+
+.body-content #game-section {
+    display: inline-block;
+}
+
+.body-content p {
+    display: inline-block;
+}
+
+.body-content #game-selection {
+    font-size: 25px;
+}
+
+.body-content a {
+    color: lightgrey;
+}
+
+.footer-content {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    font-family: "Arcade Classic";
+}
+
+hr {
+    border-width: 3px;
+    border-color: lightgray;
+}
