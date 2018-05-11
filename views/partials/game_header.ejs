@@ -10,8 +10,8 @@
             }
         }, false);
 
-        function isValidName (name){
-            if (name.length > 10 || name.length === 0){
+        function isValidinitials (initials){
+            if (initials.length > 3 || initials.length === 0){
                 return false;
             }
             return true;
@@ -19,15 +19,14 @@
 
         function postScore(scoreDataObj){
 
-            var name = "";
+            var initials = "";
             do {
-                name = prompt("Enter your name (10 CHARACTERS MAX!):");
-            } while (!isValidName(name));
-
-            if (!name){
+                initials = prompt("Enter your initials (3 CHARACTERS MAX):");
+            } while (!isValidinitials(initials));
+            if (!initials){
                 return;
             }
-            scoreDataObj.name = name.toUpperCase();
+            scoreDataObj.initials = initials.toUpperCase();
 
             const getMonthString = {
                 0: "January", 1: "Februrary", 2: "March", 3: "April", 

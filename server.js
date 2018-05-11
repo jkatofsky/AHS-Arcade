@@ -99,7 +99,7 @@ function saveScore(scoreData) {
 		}
 		var scoresObj = JSON.parse(data);
 		scoresObj.games[scoreData.game].push({
-			name: scoreData.name,
+			initials: scoreData.initials,
 			score: scoreData.score,
 			date: scoreData.date
 		});

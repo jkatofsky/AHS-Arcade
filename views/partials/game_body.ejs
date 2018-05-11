@@ -1,7 +1,7 @@
 <body>
     <div class = "body-content">
         <h1> <%= game %> </h1>
-        <h2>a game by <%= programmer %> </h2>
+        <h2>by <%= programmer %> </h2>
         <br>
         <p><a href = "/">back to home </a></p>
         <p><a href = <%= repositoryUrl %>>see the code</a></p>
@@ -16,7 +16,7 @@
                 <% for (var i = 0; i < top10Scores.length; i ++){ %>
                     <tr>
                         <th><%= i+1 %>.</th>
-                        <th><%= top10Scores[i].name %></th>
+                        <th><%= top10Scores[i].initials %></th>
                         <th><%= top10Scores[i].score %></th>
                     </tr>
                 <% } %> 

@@ -30,11 +30,21 @@ function draw() {
     background(0);
     switch (gameScreen) { //switch based on the game screen
         case START: //draw start screen
+            rectMode(CORNER);
+            stroke("#FFFFFF");
+            fill("#a1deff");
+            rect(SCREEN_SIZE / 2 + 50, SCREEN_SIZE / 2 - 75, CELL_SIZE, CELL_SIZE);
+            fill("#FF0000");
+            rect(SCREEN_SIZE / 2 + 50, SCREEN_SIZE / 2 - 50, CELL_SIZE, CELL_SIZE);
+
             noStroke();
-            textAlign(CENTER);
             fill(255);
             textSize(15);
-            text("Move with WASD or the arrow keys\nEat the apples\n Don't hit yourself or the walls\nPress SPACE to begin", SCREEN_SIZE / 2, SCREEN_SIZE / 2);
+            textAlign(LEFT);
+            text("SNAKE:", SCREEN_SIZE / 2 - 50, SCREEN_SIZE / 2 - 50);
+            text("APPLE:", SCREEN_SIZE / 2 - 50, SCREEN_SIZE / 2 - 25)
+            textAlign(CENTER);
+            text("move with WASD or the arrow keys\neat the apple\n don't hit yourself or the walls\nPress SPACE to begin", SCREEN_SIZE / 2, SCREEN_SIZE / 2 + 50);
             break;
         case PLAY:
             stroke("#FFFFFF");
@@ -55,9 +65,9 @@ function draw() {
             noStroke();
             textAlign(CENTER);
             textSize(30);
-            text("Your score was " + snake.length, SCREEN_SIZE / 2, SCREEN_SIZE / 2 - 50);
+            text("your score is " + snake.length, SCREEN_SIZE / 2, SCREEN_SIZE / 2 - 50);
             textSize(15); +
-            text("Press ENTER to submit your score\nor press BACKSPACE to discard it", SCREEN_SIZE / 2, SCREEN_SIZE / 2 + 50);
+            text("press ENTER to submit your score\nor press BACKSPACE to discard it", SCREEN_SIZE / 2, SCREEN_SIZE / 2 + 50);
             break;
         default:
             break;
