@@ -39,6 +39,10 @@ h2 {
     line-height: 40px;
 }
 
+table {
+    text-align: left;
+}
+
 .body-content #game-section table {
     font-size: 20px;
     border-spacing: 10px;
