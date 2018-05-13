@@ -56,17 +56,17 @@ function draw() {
             snake.update(apple); //updating the snake given the apple (this handles walls, touching self, and eating apples)
             snake.display(); //draw snake
             noStroke();
-            textAlign(LEFT, TOP);
+            textAlign(LEFT);
             fill(255);
             textSize(50);
-            text(snake.length, 25, 25);
+            text(snake.length, 25, 75);
             break;
         case END: //draw end screen
             noStroke();
             textAlign(CENTER);
             textSize(30);
             text("your score is " + snake.length, SCREEN_SIZE / 2, SCREEN_SIZE / 2 - 50);
-            textSize(15); +
+            textSize(15);
             text("press ENTER to submit your score\nor press BACKSPACE to discard it", SCREEN_SIZE / 2, SCREEN_SIZE / 2 + 50);
             break;
         default:
