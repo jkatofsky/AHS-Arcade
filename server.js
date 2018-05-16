@@ -1,12 +1,9 @@
 /*
 TO-DO:
 
+-improve the instructions on the tetris beginning screen
+
 -clean up all of the CSS and HTMl
-
--ready all games for website (high score saving capability and choice, div linking and sizing, font, etc)
-and entirely fill out the get parameters here appropriately
-
--add gifs (or at least images) in game-selection paragraphs on home.ejs
 
 -improve console.logs for when the server has extended uptime
 
@@ -78,7 +75,7 @@ app.get("/tetris", function (request, response) {
 		gameScript: "games/tetris.js",
 		top10Scores: getHighScores("tetris", 10),
 		programmer: "Kieran O'Day",
-		codeUrl: ""
+		codeUrl: "https://github.com/jkatofsky/AHS-Arcade/blob/master/resources/games/tetris.js"
 	});
 });
 

@@ -322,12 +322,15 @@ function draw() {
   background(0);
   switch (state) {
     case STARTSCREEN: // intro screen to the game
-      s.draw(25, 25, (height - 50) / 20, (height - 50) / 20);
       fill(100, 100);
       rect(0, 0, width, height);
       fill(255);
+      textSize(12);
+      text("rotate the brick with UP ARROW", width / 2, height / 2 - 100);
+      text("move the brick with LEFT and RIGHT ARROW", width / 2, height / 2 - 50);
+      text("drop the brick with DOWN ARROW", width / 2, height / 2);
       textSize(20);
-      text("Press SPACE to play", width / 2, height / 2 - 50);
+      text("Press SPACE to play", width / 2, height / 2 + 100);
       break;
     case PLAYING: // game is playing
       s.draw(25, 25, (height - 50) / 20, (height - 50) / 20);
