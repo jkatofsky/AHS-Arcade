@@ -68,7 +68,7 @@ app.get("/snake", function (request, response) {
 		gameScript: "games/snake.js",
 		top10Scores: getHighScores("snake", 10),
 		programmer: "Josh Katofsky",
-		repositoryUrl: "https://github.com/jkatofsky/AHS-Arcade/blob/master/resources/games/snake.js"
+		codeUrl: "https://github.com/jkatofsky/AHS-Arcade/blob/master/resources/games/snake.js"
 	});
 });
 
@@ -78,7 +78,7 @@ app.get("/tetris", function (request, response) {
 		gameScript: "games/tetris.js",
 		top10Scores: getHighScores("tetris", 10),
 		programmer: "Kieran O'day",
-		repositoryUrl: ""
+		codeUrl: ""
 	});
 });
 
@@ -88,7 +88,7 @@ app.get("/asteroids", function (request, response) {
 		gameScript: "games/asteroids.js",
 		top10Scores: getHighScores("asteroids", 10),
 		programmer: "Kieran O'day",
-		repositoryUrl: ""
+		codeUrl: ""
 	});
 });
 

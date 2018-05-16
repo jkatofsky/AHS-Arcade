@@ -21,9 +21,10 @@ var gameScreen = START;
 function setup() {
     var canvas = createCanvas(SCREEN_SIZE, SCREEN_SIZE);
     canvas.parent("game");
-    document.getElementById("game").style = "width: " + SCREEN_SIZE + "px";
-    frameRate(15);
+    document.getElementById("game").style = "width: " + width +
+        "px; height: " + height + "px";
     textFont(loadFont("/../style/arcade_font.ttf"));
+    frameRate(15);
 }
 
 function draw() {
