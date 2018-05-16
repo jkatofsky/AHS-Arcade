@@ -18,7 +18,7 @@ h2 {
 
 .body-content {
     margin: auto;
-    width: 95%;
+    width: 100%;
     text-align: center;
     font-family: "Arcade Classic";
 }
@@ -56,8 +56,18 @@ table {
     display: inline-block;
 }
 
-.body-content #game-selection {
-    font-size: 25px;
+.body-content #game-selection p {
+    font-size: 15px;
+}
+
+.body-content #game-selection a {
+    font-size: 30px;
+}
+
+.body-content #game-selection img {
+    outline: 3px solid white;
+    width: 300px;
+    height: 300px;
 }
 
 .body-content #all-high-scores {
@@ -91,6 +101,7 @@ a {
     width: 75%;
     text-align: center;
     font-family: "Arcade Classic";
+    line-height: 25px;
 }
 
 hr {

@@ -77,7 +77,7 @@ app.get("/tetris", function (request, response) {
 		game: "Tetris",
 		gameScript: "games/tetris.js",
 		top10Scores: getHighScores("tetris", 10),
-		programmer: "Kieran O'day",
+		programmer: "Kieran O'Day",
 		codeUrl: ""
 	});
 });
@@ -87,8 +87,8 @@ app.get("/asteroids", function (request, response) {
 		game: "Asteroids",
 		gameScript: "games/asteroids.js",
 		top10Scores: getHighScores("asteroids", 10),
-		programmer: "Kieran O'day",
-		codeUrl: ""
+		programmer: "Kieran O'Day",
+		codeUrl: "https://github.com/jkatofsky/AHS-Arcade/blob/master/resources/games/asteroids.js"
 	});
 });
 
