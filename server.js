@@ -1,8 +1,6 @@
 /*
 TO-DO:
 
--improve the instructions on the tetris beginning screen
-
 -clean up all of the CSS and HTMl
 
 -improve console.logs for when the server has extended uptime
