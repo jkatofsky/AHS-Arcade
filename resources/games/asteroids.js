@@ -429,8 +429,8 @@ function play() {
     text("ASSTEROIDS", width / 4, height / 4 - 35);
     textSize(10);
     text("press SPACE to play", width / 4, height / 4);
-    textSize(5);
-    text("[H] - help", width / 2 - 30, height / 2 - 15);
+    textSize(8);
+    text("[H] - help", width / 2 - 70, height / 2 - 15);
     fill('#777');
     stroke('#000');
     for (var i = 0; i < 3; i++)
@@ -549,8 +549,10 @@ function keyPressed() {
         }
         portals.push(new Portal(tempx, tempy, ship.loc.x, ship.loc.y));
       } else if (selection === SHIELD) {
-        ship.shielded = true;
-        ship.shieldtime = millis();
+        if (millis() - ship.shieldtime > 6000) {
+          ship.shielded = true;
+          ship.shieldtime = millis();
+        }
       }
     }
   } else if (state === GAMEOVER) {
