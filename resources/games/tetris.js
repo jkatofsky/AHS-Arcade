@@ -42,6 +42,7 @@ const BLOCKS = [LBLOCK, JBLOCK, ZBLOCK, SBLOCK, TBLOCK, IBLOCK, BLOCKYBLOCK];
 const STARTSCREEN = 0,
   PLAYING = 1,
   GAMEOVER = 2;
+const colors = ["#0ff9", "#f909", "#0f09", "#f009", "#f0f9"];
 var state = STARTSCREEN;
 var fall = false;
 //makes an empty 2d array with a number of rows and a number of columns
@@ -256,16 +257,7 @@ class Screen {
         if (this.grid[r][c] == 0) { //nothing there
           fill(100, 150);
         } else {
-          if (this.grid[r][c] % 5 == 0) //color coded blocks mod to keep fallen blocks same color as they used to be
-            fill(0, 255, 255, 150);
-          else if (this.grid[r][c] % 5 == 1)
-            fill(255, 153, 0, 150);
-          else if (this.grid[r][c] % 5 == 2)
-            fill(0, 255, 0, 150);
-          else if (this.grid[r][c] % 5 == 3)
-            fill(255, 0, 0, 150);
-          else
-            fill(255, 0, 255, 150);
+          fill(colors[this.grid[r][c] % 5]);
         }
         rect(w * c, h * r, w, h);
         rect(w * c + w * .1, h * r + h * .1, w * .8, h * .8);
@@ -278,27 +270,16 @@ class Screen {
         if (r > this.nextBlock.matrix.length - 1 || c > this.nextBlock.matrix[0].length - 1 || this.nextBlock.matrix[r][c] == 0) {
           fill(100, 150);
         } else {
-          if (this.nextBlock.matrix[r][c] % 5 == 0)
-            fill(0, 255, 255, 150);
-          else if (this.nextBlock.matrix[r][c] % 5 == 1)
-            fill(255, 153, 0, 150);
-          else if (this.nextBlock.matrix[r][c] % 5 == 2)
-            fill(0, 255, 0, 150);
-          else if (this.nextBlock.matrix[r][c] % 5 == 3)
-            fill(255, 0, 0, 150);
-          else
-            fill(255, 0, 255, 150);
+          fill(colors[this.nextBlock.matrix[r][c] % 5]);
         }
         push();
         translate(this.grid[0].length * w + 25, 0);
         rect(w * c, h * r, w, h);
         rect(w * c + w * .1, h * r + h * .1, w * .8, h * .8);
         fill(255);
-        textSize(30);
-        text("TETRIS", 100, height / 2)
-        textSize(10);
         textSize(20);
-        text("Score: " + this.score, 90, height / 2 + 100);
+        textAlign(LEFT);
+        text(this.score, 10, 150);
         pop();
       }
     }
@@ -310,7 +291,7 @@ var s = new Screen(20, 10);
 var a = new Block(TBLOCK, 0, 0);
 
 function setup() {
-  var canvas = createCanvas(600, 600);
+  var canvas = createCanvas(500, 600);
   canvas.parent("game");
   document.getElementById("game").style = "width: " + width + "px; height: " + height + "px";
   textFont(loadFont("/../style/arcade_font.ttf"));
@@ -322,8 +303,6 @@ function draw() {
   background(0);
   switch (state) {
     case STARTSCREEN: // intro screen to the game
-      fill(100, 100);
-      rect(0, 0, width, height);
       fill(255);
       textSize(12);
       text("rotate the brick with UP ARROW", width / 2, height / 2 - 100);
@@ -344,7 +323,7 @@ function draw() {
       rect(0, 0, width, height);
       fill(255);
       textSize(40);
-      text("GAMEOVER", width / 2, height / 2);
+      text("GAME OVER", width / 2, height / 2);
       textSize(15);
       text("press ENTER to submit your score", width / 2, height / 2 + 35);
       text("or press BACKSPACE to discard it", width / 2, height / 2 + 65);
