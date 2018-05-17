@@ -426,7 +426,7 @@ function play() {
     scale(2);
     fill('#fff');
     textSize(20);
-    text("ASSTEROIDS", width / 4, height / 4 - 35);
+    text("ASTEROIDS", width / 4, height / 4 - 35);
     textSize(10);
     text("press SPACE to play", width / 4, height / 4);
     textSize(8);
