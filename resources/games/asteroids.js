@@ -425,12 +425,10 @@ function play() {
     push();
     scale(2);
     fill('#fff');
-    textSize(20);
-    text("ASTEROIDS", width / 4, height / 4 - 35);
     textSize(10);
-    text("press SPACE to play", width / 4, height / 4);
-    textSize(8);
-    text("[H] - help", width / 2 - 70, height / 2 - 15);
+    text("select mode with arrow keys", width / 4, height / 4 - 40);
+    text("press SPACE to play", width / 4, height / 4 - 20);
+    text("hold down H for help", width / 4, height / 4 + 0);
     fill('#777');
     stroke('#000');
     for (var i = 0; i < 3; i++)

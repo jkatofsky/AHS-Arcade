@@ -1,8 +1,5 @@
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" width="device-width," initial-scale="1.0," maximum-scale="1.0," user-scalable="0">
     <title> AHS Arcade - <%= game %></title>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
         window.addEventListener("keydown", function(event) {
             if([32, 37, 38, 39, 40].indexOf(event.keyCode) !== -1) {
@@ -10,9 +7,15 @@
             }
         }, false);
 
+        var validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         function isValidinitials (initials){
             if (initials.length > 3 || initials.length === 0){
                 return false;
+            }
+            for (var i = 0; i < initials.length; i ++){
+                if (!validCharacters.includes(initials.charAt(i))){
+                    return false;
+                }
             }
             return true;
         }
@@ -21,7 +24,7 @@
 
             var initials = "";
             do {
-                initials = prompt("Enter your initials (3 CHARACTERS MAX):");
+                initials = prompt("Enter your initials (3 CHARACTERS MAX; ONLY LETTERS):");
             } while (!isValidinitials(initials));
             if (!initials){
                 return;
@@ -55,5 +58,7 @@
     </script>       
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
     <script src= <%= gameScript %>></script>
-    <link rel="stylesheet" type="text/css" href="style/style.css">
+
+    <% include global_header_info %>
+    
 </head>
