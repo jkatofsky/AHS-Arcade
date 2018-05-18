@@ -30,7 +30,7 @@ function compareScoreObjects(scoreObj1, scoreObj2) {
 function getHighScores(game, amount) {
 	var scoresText = fs.readFileSync('scores.json', 'utf8');
 	var scoresObj = JSON.parse(scoresText);
-	var gameScores = scoresObj.games[game];
+	var gameScores = scoresObj[game];
 	var sortedGameScores = gameScores.sort(compareScoreObjects);
 	return (sortedGameScores.slice(0, amount));
 }
@@ -41,7 +41,7 @@ function saveScore(scoreData) {
 			throw error;
 		}
 		var scoresObj = JSON.parse(data);
-		scoresObj.games[scoreData.game].push({
+		scoresObj[scoreData.game].push({
 			initials: scoreData.initials,
 			score: scoreData.score,
 			date: scoreData.date
