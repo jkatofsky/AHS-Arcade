@@ -40,13 +40,16 @@ function saveScore(scoreData) {
 		if (error) {
 			throw error;
 		}
-		var scoresObj = JSON.parse(data);
-		scoresObj[scoreData.game].push({
+		var allScores = JSON.parse(data);
+		var newScore = {
 			initials: scoreData.initials,
 			score: scoreData.score,
 			date: scoreData.date
-		});
-		updatedJSON = JSON.stringify(scoresObj);
+		};
+		console.log("Score " + newScore.score + " for " + scoreData.game.toUpperCase() +
+			" saved by " + newScore.initials + " at " + Date());
+		allScores[scoreData.game].push(newScore);
+		updatedJSON = JSON.stringify(allScores);
 		fs.writeFile('scores.json', updatedJSON, 'utf8');
 	});
 }
@@ -62,7 +65,6 @@ app.get("/high_scores", function (request, response) {
 		asteroidsScores: getHighScores("asteroids", 100)
 	})
 });
-
 
 app.get("/snake", function (request, response) {
 	response.render("game", {
@@ -100,4 +102,6 @@ app.post('/submit_score', function (request, response) {
 	return response.redirect('/' + scoreData.game);
 });
 
-app.listen(8000);
+app.listen(8000, function () {
+	console.log("Server is running on port 8000")
+});

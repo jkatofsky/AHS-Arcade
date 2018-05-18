@@ -1,5 +1,13 @@
 {
-    "snake": [],
+    "snake": [{
+        "initials": "JSK",
+        "score": "2",
+        "date": "May 17, 2018"
+    }, {
+        "initials": "JSK",
+        "score": "2",
+        "date": "May 17, 2018"
+    }],
     "tetris": [],
     "asteroids": []
 }
