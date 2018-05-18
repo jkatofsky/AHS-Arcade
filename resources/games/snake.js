@@ -60,7 +60,7 @@ function draw() {
             textAlign(LEFT);
             fill(255);
             textSize(50);
-            //text(snake.length, 25, 75);
+            text(snake.length, 25, 75);
             break;
         case END: //draw end screen
             noStroke();

@@ -100,4 +100,4 @@ app.post('/submit_score', function (request, response) {
 	return response.redirect('/' + scoreData.game);
 });
 
-app.listen(8080);
+app.listen(8000);
