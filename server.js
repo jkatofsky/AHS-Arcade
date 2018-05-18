@@ -29,7 +29,6 @@ function compareScoreObjects(scoreObj1, scoreObj2) {
 
 function getHighScores(game, amount) {
 	var scoresText = fs.readFileSync('scores.json', 'utf8');
-	console.log(scoresText);
 	var scoresObj = JSON.parse(scoresText);
 	var gameScores = scoresObj[game];
 	var sortedGameScores = gameScores.sort(compareScoreObjects);
@@ -103,5 +102,5 @@ app.post('/submit_score', function (request, response) {
 });
 
 app.listen(8000, function () {
-	console.log("Server is running on port 8000")
+	console.log("Server is running on port 8000");
 });
