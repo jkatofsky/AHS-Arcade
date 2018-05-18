@@ -50,8 +50,7 @@ function saveScore(scoreData) {
 		console.log("Score " + newScore.score + " for " + scoreData.game.toUpperCase() +
 			" saved by " + newScore.initials + " at " + Date());
 		allScores[scoreData.game].push(newScore);
-		updatedJSON = JSON.stringify(allScores);
-		fs.writeFile('scores.json', updatedJSON, 'utf8');
+		fs.writeFile('scores.json', JSON.stringify(allScores), 'utf8');
 	});
 }
 
