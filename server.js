@@ -37,9 +37,6 @@ function getHighScores(game, amount) {
 
 function saveScore(scoreData) {
 	fs.readFile('scores.json', 'utf8', function (error, data) {
-		if (error) {
-			throw error;
-		}
 		var allScores = JSON.parse(data);
 		var newScore = {
 			initials: scoreData.initials,
