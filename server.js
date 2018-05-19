@@ -29,7 +29,6 @@ function compareScoreObjects(scoreObj1, scoreObj2) {
 
 function getHighScores(game, amount) {
 	var scoresText = fs.readFileSync('scores.json', 'utf8');
-	console.log(scoresText)
 	var scoresObj = JSON.parse(scoresText);
 	var gameScores = scoresObj[game];
 	var sortedGameScores = gameScores.sort(compareScoreObjects);
