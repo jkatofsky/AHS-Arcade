@@ -38,7 +38,7 @@ function compareScoreObjects(scoreObj1, scoreObj2) {
 }
 
 function getHighScores(game, amount) {
-	var scoresText = fs.readFileSync('/scores.json', 'utf8');
+	var scoresText = fs.readFileSync('scores.json', 'utf8');
 	var scoresObj = JSON.parse(scoresText);
 	var gameScores = scoresObj[game];
 	var sortedGameScores = gameScores.sort(compareScoreObjects);
@@ -46,7 +46,7 @@ function getHighScores(game, amount) {
 }
 
 function saveScore(scoreData) {
-	fs.readFile('/scores.json', 'utf8', function (error, data) {
+	fs.readFile('scores.json', 'utf8', function (error, data) {
 		var allScores = JSON.parse(data);
 		var newScore = {
 			initials: scoreData.initials,
@@ -56,7 +56,7 @@ function saveScore(scoreData) {
 		console.log("Score " + newScore.score + " for " + scoreData.game.toUpperCase() +
 			" saved by " + newScore.initials + " at " + Date());
 		allScores[scoreData.game].push(newScore);
-		fs.writeFile('/scores.json', JSON.stringify(allScores), 'utf8');
+		fs.writeFile('scores.json', JSON.stringify(allScores), 'utf8');
 	});
 }
 
