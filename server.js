@@ -1,13 +1,3 @@
-/*
--make the speed of calling update() increase slowly in Tetris
-
--add music to the website and music/sound effects to the games?
-
--write certain logging info to a file?
-for the amount of people who access the website
-IP addresses of those who access
-*/
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
